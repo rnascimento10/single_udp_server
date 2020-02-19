@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceProcess;
 
 namespace RGalatico10.SimpleUdpServer
 {
@@ -6,7 +7,13 @@ namespace RGalatico10.SimpleUdpServer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            using (var appService = new AppService())
+            {
+                ServiceBase.Run(appService);
+            }
+
         }
+
     }
 }
